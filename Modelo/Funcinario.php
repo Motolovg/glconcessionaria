@@ -22,6 +22,6 @@ class Funcionario extends Pessoa
         return $this ->idFunc;
     }
 
-    
+    #
 
 }
