@@ -88,8 +88,8 @@
                 <img class="u-back-image u-expanded" src="images/Porsche-911-Targa-2024.jpg">
               </div>
               <div class="u-align-left u-grey-90 u-over-slide u-over-slide-1">
-                <h3 class="u-gallery-heading" style="margin-left: 0px; margin-right: 0px;">Sample Title</h3>
-                <p class="u-gallery-text" style="margin-left: 0px; margin-right: 0px;">Sample Text</p>
+                <h3 class="u-gallery-heading" style="margin-left: 0px; margin-right: 0px;">2020</h3>
+                <p class="u-gallery-text" style="margin-left: 0px; margin-right: 0px;">Esportivo</p>
               </div>
             </div>
             <div class="u-carousel-item u-gallery-item">
@@ -97,8 +97,8 @@
                 <img class="u-back-image u-expanded" src="images/Porsche-911-Targa-2023.jpg">
               </div>
               <div class="u-align-left u-grey-90 u-over-slide u-over-slide-2">
-                <h3 class="u-gallery-heading" style="margin-left: 0px; margin-right: 0px;">Sample Title</h3>
-                <p class="u-gallery-text" style="margin-left: 0px; margin-right: 0px;">Sample Text</p>
+                <h3 class="u-gallery-heading" style="margin-left: 0px; margin-right: 0px;">2020</h3>
+                <p class="u-gallery-text" style="margin-left: 0px; margin-right: 0px;">Esportivo</p>
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         <div class="u-border-3 u-border-grey-40 u-container-style u-expanded-width u-grey-80 u-group u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <h1 class="u-align-left u-text u-text-1">
-              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="Ferrari.php">Ferrari 812 Superfast&nbsp;&nbsp;</a>
+              <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="ferrari.php">Ferrari 812 Superfast&nbsp;&nbsp;</a>
             </h1>
           </div>
         </div>
@@ -149,8 +149,8 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                 <img class="u-back-image u-expanded" src="images/mansory_stallone_black_812_011.jpg">
               </div>
               <div class="u-grey-90 u-over-slide u-over-slide-1">
-                <h3 class="u-gallery-heading">Sample Title</h3>
-                <p class="u-gallery-text">Sample Text</p>
+                <h3 class="u-gallery-heading">2019</h3>
+                <p class="u-gallery-text">Esportivo/Corrida</p>
               </div>
             </div>
             <div class="u-carousel-item u-gallery-item">
@@ -158,8 +158,8 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                 <img class="u-back-image u-expanded" src="images/ferrari-812-mao-superfast-papel-de-parede-5120x2160_16.jpg">
               </div>
               <div class="u-grey-90 u-over-slide u-over-slide-2">
-                <h3 class="u-gallery-heading">Sample Title</h3>
-                <p class="u-gallery-text">Sample Text</p>
+                <h3 class="u-gallery-heading">2019</h3>
+                <p class="u-gallery-text">Esportivo/Corrida</p>
               </div>
             </div>
           </div>
@@ -210,8 +210,8 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                 <img class="u-back-image u-expanded" src="images/mercedes-amg-gt-com-variante-mais-potente-coupe-em-2021-na-europa-maistecnologia.com-1.jpg">
               </div>
               <div class="u-grey-90 u-over-slide u-over-slide-1">
-                <h3 class="u-gallery-heading">Sample Title</h3>
-                <p class="u-gallery-text">Sample Text</p>
+                <h3 class="u-gallery-heading">2021 (limited edition)</h3>
+                <p class="u-gallery-text">Esportivo</p>
               </div>
             </div>
             <div class="u-carousel-item u-gallery-item">
@@ -219,8 +219,8 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                 <img class="u-back-image u-expanded" src="images/image.MQ6.7.20181010165710.jpeg">
               </div>
               <div class="u-grey-90 u-over-slide u-over-slide-2">
-                <h3 class="u-gallery-heading">Sample Title</h3>
-                <p class="u-gallery-text">Sample Text</p>
+                <h3 class="u-gallery-heading">2021 (limited edition)</h3>
+                <p class="u-gallery-text">Esportivo</p>
               </div>
             </div>
           </div>
