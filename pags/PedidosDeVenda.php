@@ -1,3 +1,10 @@
+<?php
+
+
+
+
+
+?>
 
 <!DOCTYPE html>
 <html style="font-size: 16px;">
@@ -76,37 +83,47 @@
             </colgroup>
             <thead class="u-black u-table-header u-table-header-1">
               <tr style="height: 21px;">
-                <th class="u-border-1 u-border-black u-table-cell">Venda</th>
-                <th class="u-border-1 u-border-black u-table-cell">Cliente</th>
-                <th class="u-border-1 u-border-black u-table-cell">Carro</th>
-                <th class="u-border-1 u-border-black u-table-cell">Data</th>
+                <th class="u-border-1 u-border-black u-table-cell">Codigo de Venda</th>
+                <th class="u-border-1 u-border-black u-table-cell">Nome</th>
+                <th class="u-border-1 u-border-black u-table-cell">CPF</th>
+                <th class="u-border-1 u-border-black u-table-cell">Endereço</th>
+                <th class="u-border-1 u-border-black u-table-cell">Bairro</th>
+                <th class="u-border-1 u-border-black u-table-cell">Numero</th>
+                <th class="u-border-1 u-border-black u-table-cell">Data da Compra</th>
+                <th class="u-border-1 u-border-black u-table-cell">Valor</th>
               </tr>
             </thead>
             <tbody class="u-grey-70 u-table-body u-table-body-1">
-              <tr style="height: 75px;">
-                <td class="u-border-1 u-border-grey-50 u-table-cell">Row 1</td>
-                <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
-              </tr>
-              <tr style="height: 76px;">
-                <td class="u-border-1 u-border-grey-50 u-table-cell">Row 2</td>
-                <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
-              </tr>
-              <tr style="height: 76px;">
-                <td class="u-border-1 u-border-grey-50 u-table-cell">Row 3</td>
-                <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
-                <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
-              </tr>
-              <tr style="height: 76px;">
-                <td class="u-border-1 u-border-grey-50 u-table-cell"></td>
-                <td class="u-border-1 u-border-grey-50 u-table-cell"></td>
-                <td class="u-border-1 u-border-grey-50 u-table-cell"></td>
-                <td class="u-border-1 u-border-grey-50 u-table-cell"></td>
-              </tr>
+              <?php foreach($vendas as $venda) { ?>
+                <tr style="height: 75px;">
+                  <td class="u-border-1 u-border-grey-50 u-table-cell"><?php echo $venda['']; ?></td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell"><?php echo $venda['']; ?></td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell"><?php echo $venda['']; ?></td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell"><?php echo $venda['']; ?></td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell"><?php echo $venda['']; ?></td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell"><?php echo $venda['']; ?></td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell"><?php echo $venda['']; ?></td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell"><?php echo $venda['']; ?></td>
+                </tr>
+                <tr style="height: 76px;">
+                  <td class="u-border-1 u-border-grey-50 u-table-cell">Row 2</td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
+                </tr>
+                <tr style="height: 76px;">
+                  <td class="u-border-1 u-border-grey-50 u-table-cell">Row 3</td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell">Description</td>
+                </tr>
+                <tr style="height: 76px;">
+                  <td class="u-border-1 u-border-grey-50 u-table-cell"></td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell"></td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell"></td>
+                  <td class="u-border-1 u-border-grey-50 u-table-cell"></td>
+                </tr>
+              <?php } ?>  
             </tbody>
           </table>
         </div>
