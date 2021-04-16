@@ -31,6 +31,12 @@ if (isset($_REQUEST['btnSalvar'])) {
         $erro = 1;
     }
 
+    if (isset($_REQUEST['telefone']) && !empty($_REQUEST['telefone'])) {
+        $telefone = $_REQUEST['telefone'];
+    } else {
+        $erro = 1;
+    }
+
     if (isset($_REQUEST['data_nascimento']) && !empty($_REQUEST['data_nascimento'])) {
         $data_nascimento = $_REQUEST['data_nascimento'];
     } else {
@@ -38,12 +44,12 @@ if (isset($_REQUEST['btnSalvar'])) {
     }
     
     if (!$erro) {
-        $sql = "INSERT INTO funcionario (nome, cpf, cep, n_casa, data_nascimento) VALUES ('$nome','$cpf','$cep', '$n_casa', '$data_nascimento')";
+        $sql = "INSERT INTO cliente (nome, cpf, cep, n_casa, telefone, data_nascimento) VALUES ('$nome','$cpf','$cep', '$n_casa', $telefone, '$data_nascimento')";
         
         $result = mysqli_query($connection, $sql);
 
         if ($result) {
-            header("Location: http://localhost/prova/funcionario.php");
+            header("Location: http://localhost/prova/cliente.php");
         } else {
             echo "Erro ao executar o SQL";
         }
@@ -61,7 +67,7 @@ if (isset($_REQUEST['btnSalvar'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de funcionario</title>
+    <title>Cadastro de cliente</title>
     <style>
         .form-input {
             margin: 15px;
@@ -100,8 +106,8 @@ if (isset($_REQUEST['btnSalvar'])) {
     </style>
 </head>
 <body>
-    <h1>Cadastro de Funcionario</h1>
-    <form action="cadastro_fucionario.php" method="post">
+    <h1>Cadastro de cliente</h1>
+    <form action="cadastro_cliente.php" method="post">
         <div class="form-input">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" required>
@@ -120,6 +126,11 @@ if (isset($_REQUEST['btnSalvar'])) {
         <div class="form-input">
             <label for="n_casa">Numero da Casa</label>
             <input type="text" id="n_casa" name="n_casa" required>
+        </div>
+
+        <div class="form-input">
+            <label for="telefone">Telefone</label>
+            <input type="text" id="telefone" name="telefone" required>
         </div>
 
         <div class="form-input">
