@@ -1,6 +1,6 @@
 <?php
 
-/*include "valida_login.php";*/
+include "valida_login.php";
 include 'conexao.php';
 
 if (isset($_REQUEST['btnSalvar'])) {
