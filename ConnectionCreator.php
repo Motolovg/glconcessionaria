@@ -5,9 +5,9 @@ class ConnectionCreator
     public static function createConnection():PDO
     {
         $servidor="localhost";
-        $banco= "LG";
-        $usuario="lukas";
-        $senha="1A2b3c4d@";
+        $banco= "lg";
+        $usuario="root";
+        $senha="Gi123698745";
         $porta=3306;
         $dsn="mysql:host=$servidor;port=$porta;dbname=$banco;charset=utf8";
 
