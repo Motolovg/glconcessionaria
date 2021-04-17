@@ -42,12 +42,12 @@ if (isset($_REQUEST['btnLogin'])) {
             $errors[] = "Login ou senha incorretos";
             $erro = True;
 
-            header("Location: login.php");
+            header("Location: login2.php");
         }   
         
 
     } else {
-        header("Location: login.php");
+        header("Location: login2.php");
     }
 
 }

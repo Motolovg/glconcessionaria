@@ -4,7 +4,7 @@ include "valida_login.php";
 include 'conexao.php';
 
 if (isset($_REQUEST['btnEditar'])) {
-
+    
     $erro = 0;
 
     if (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
@@ -19,14 +19,26 @@ if (isset($_REQUEST['btnEditar'])) {
         $erro = 1;
     }
     
-    if (isset($_REQUEST['email']) && !empty($_REQUEST['email'])) {
-        $email = $_REQUEST['email'];
+    if (isset($_REQUEST['cpf']) && !empty($_REQUEST['cpf'])) {
+        $cpf = $_REQUEST['cpf'];
     } else {
         $erro = 1;
     }
 
-    if (isset($_REQUEST['celular']) && !empty($_REQUEST['celular'])) {
-        $celular = $_REQUEST['celular'];
+    if (isset($_REQUEST['cep']) && !empty($_REQUEST['cep'])) {
+        $cep = $_REQUEST['cep'];
+    } else {
+        $erro = 1;
+    }
+
+    if (isset($_REQUEST['n_casa']) && !empty($_REQUEST['n_casa'])) {
+        $n_casa = $_REQUEST['n_casa'];
+    } else {
+        $erro = 1;
+    }
+
+    if (isset($_REQUEST['telefone']) && !empty($_REQUEST['telefone'])) {
+        $telefone = $_REQUEST['telefone'];
     } else {
         $erro = 1;
     }
@@ -39,11 +51,11 @@ if (isset($_REQUEST['btnEditar'])) {
 
     if (!$erro) {
         
-        $sql = "UPDATE aluno SET nome = '$nome', email = '$email', celular = '$celular', data_nascimento = '$data_nascimento' WHERE id = $id";
+        $sql = "UPDATE cliente SET nome = '$nome', cpf = '$cpf', cep = '$cep', n_casa = '$n_casa', telefone = '$telefone', data_nascimento = '$data_nascimento' WHERE id = $id";
         $res = mysqli_query($connection, $sql);
 
         if ($res) {
-            header("Location: alunos.php");
+            header("Location: cliente.php");
         } else {
             echo "Erro ao atualizar o banco de dados";
         }

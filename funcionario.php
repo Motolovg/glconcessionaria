@@ -5,7 +5,11 @@ include 'conexao.php';
 
 $result = mysqli_query($connection, "SELECT * FROM funcionario");
 
+<<<<<<< HEAD
 $funcionarios = $result->fetch_all(MYSQLI_ASSOC);
+=======
+$funcionario = $result->fetch_all(MYSQLI_ASSOC);
+>>>>>>> a2bdd3f29d80859b44b544b5b22d2050139ee11d
 
 ?>
 <!DOCTYPE html>
@@ -39,18 +43,17 @@ $funcionarios = $result->fetch_all(MYSQLI_ASSOC);
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($funcionarios as $fucionario) { ?>
+            <?php foreach ($funcionario as $funcionario) { ?>
                 <tr>
                     <td><?php echo $funcionario["id"]; ?></td>
                     <td><?php echo $funcionario["nome"]; ?></td>
-                    <td><?php echo $fucionario["cpf"]; ?></td>
+                    <td><?php echo $funcionario["cpf"]; ?></td>
                     <td><?php echo $funcionario["cep"]; ?></td>
-                    <td><?php echo $fucionario["n_cep"]; ?></td>
-                    <td><?php echo $funcionario["data_nascimento"]; ?></td>
+                    <td><?php echo $funcionario["n_casa"]; ?></td>
                     <td><?php echo date("d/m/Y", strtotime($funcionario["data_nascimento"])); ?></td>
                     <td>
-                        <?php echo "<a href='edita_aluno.php?id={$funcionario['id']}'>Editar</a>"; ?>
-                        <?php echo "<a href='exclui_aluno.php?id={$funcionario['id']}'>Excluir</a>"; ?>
+                        <?php echo "<a href='edita_funcionario.php?id={$funcionario['id']}'>Editar</a>"; ?>
+                        <?php echo "<a href='exclui_funcionario.php?id={$funcionario['id']}'>Excluir</a>"; ?>
                     </td>
                 </tr>
             <?php } ?>
