@@ -3,9 +3,9 @@
 include "valida_login.php";
 include 'conexao.php';
 
-$result = mysqli_query($connection, "SELECT * FROM funcionarios");
+$result = mysqli_query($connection, "SELECT * FROM funcionario");
 
-$funcionarioss = $result->fetch_all(MYSQLI_ASSOC);
+$funcionarios = $result->fetch_all(MYSQLI_ASSOC);
 
 ?>
 <!DOCTYPE html>
