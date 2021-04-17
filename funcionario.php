@@ -5,11 +5,8 @@ include 'conexao.php';
 
 $result = mysqli_query($connection, "SELECT * FROM funcionario");
 
-<<<<<<< HEAD
-$funcionarios = $result->fetch_all(MYSQLI_ASSOC);
-=======
 $funcionario = $result->fetch_all(MYSQLI_ASSOC);
->>>>>>> a2bdd3f29d80859b44b544b5b22d2050139ee11d
+
 
 ?>
 <!DOCTYPE html>
