@@ -92,6 +92,7 @@ $veiculo = $result->fetch_all(MYSQLI_ASSOC);
                 <th>Cor</th>
                 <th>Valor</th>
                 <th>Tipo</th>
+                <th>Quantidade</th>
                 <th><a href="cadastro_veiculo.php">Cadastrar Veiculo</th>
             </tr>
         </thead>
@@ -107,6 +108,7 @@ $veiculo = $result->fetch_all(MYSQLI_ASSOC);
                     <td><?php echo $veiculo["cor"]; ?></td>
                     <td><?php echo $veiculo["valor"]; ?></td>
                     <td><?php echo $veiculo["tipo"]; ?></td>
+                    <td><?php echo $veiculo["quantidade"]; ?></td>
 
                     <td>
                         <?php echo "<a href='edita_veiculo.php?id={$veiculo['id']}'>Editar</a>"; ?>

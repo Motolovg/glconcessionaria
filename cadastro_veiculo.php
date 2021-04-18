@@ -54,9 +54,15 @@ if (isset($_REQUEST['btnSalvar'])) {
     } else {
         $erro = 1;
     }
+
+    if (isset($_REQUEST['quantidade']) && !empty($_REQUEST['quantidade'])) {
+        $quantidade = $_REQUEST['quantidade'];
+    } else {
+        $erro = 1;
+    }
     
     if (!$erro) {
-        $sql = "INSERT INTO veiculo (modelo, marca, ano, km, final_placa, cor, valor, tipo) VALUES ('$modelo','$marca','$ano', '$km', '$final_placa', '$cor', '$valor', '$tipo')";
+        $sql = "INSERT INTO veiculo (modelo, marca, ano, km, final_placa, cor, valor, tipo, quantidade) VALUES ('$modelo','$marca','$ano', '$km', '$final_placa', '$cor', '$valor', '$tipo', $quantidade)";
         
         $result = mysqli_query($connection, $sql);
 
@@ -184,6 +190,11 @@ if (isset($_REQUEST['btnSalvar'])) {
         <div class="form-input">
             <label for="tipo">tipo</label>
             <input type="text" id="tipo" name="tipo" required>
+        </div>
+
+        <div class="form-input">
+            <label for="quantidade">quantidade</label>
+            <input type="text" id="quantidade" name="quantidade" required>
         </div>
 
         <div class="form-input">
