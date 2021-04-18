@@ -30,14 +30,16 @@ if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Cliente</title>
     <style>
-        .form-input {
-            margin: 15px;
+          .form-input {
+            margin: 10px;
         }
 
         .form-input input {
-            padding: 5px;
-            border-radius: 4px;
+            padding: 15px 80px;
+            border-radius: 6px;
             border: 2px solid #8f8f8f;
+            background-color: #DCDCDC;
+            
         }
 
         .form-input input:focus {
@@ -52,17 +54,39 @@ if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
         }
 
         .form-input input[type=submit] {
-            padding: 10px 25px 10px 25px;
+            padding: 10px 270px 10px 25px;
             color: black;
             background-color: #62d158;
             cursor: pointer;
             transition-duration: 0.5s;
+            text-align: center;
         }
 
         .form-input input[type=submit]:hover {
-            padding: 10px 25px 10px 25px;
+            padding: 10px 270px 10px 25px;
             background-color: #9bc997;
             transition-duration: 0.5s;
+
+        }
+        form{
+            position: absolute;
+            padding: 10px 150px 250px 500px;
+            font-family: 'bebas neue';
+            color: #363636;
+
+
+        }
+        h1, h4{
+        font-family: 'bebas neue';
+        padding: 20px 16px;
+        width: 100%; 
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        color: #363636;
+        }
+        body{
+            background:#DCDCDC;
         }
     </style>
 </head>

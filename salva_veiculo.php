@@ -61,9 +61,15 @@ if (isset($_REQUEST['btnEditar'])) {
         $erro = 1;
     }
 
+    if (isset($_REQUEST['quantidade']) && !empty($_REQUEST['quantidade'])) {
+        $quantidade = $_REQUEST['quantidade'];
+    } else {
+        $erro = 1;
+    }
+
     if (!$erro) {
         
-        $sql = "UPDATE veiculo SET modelo = '$modelo', marca = '$marca', ano = '$ano', km = '$km', final_placa = '$final_placa', cor = '$cor', valor = '$valor', tipo = '$tipo'  WHERE id = $id";
+        $sql = "UPDATE veiculo SET modelo = '$modelo', marca = '$marca', ano = '$ano', km = '$km', final_placa = '$final_placa', cor = '$cor', valor = '$valor', tipo = '$tipo', quantidade = '$quantidade'  WHERE id = $id";
         $res = mysqli_query($connection, $sql);
 
         if ($res) {

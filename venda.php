@@ -1,6 +1,6 @@
 <?php
 
-#include "valida_login.php";
+include "valida_login.php";
 include 'conexao.php';
 
 #----------------------------------------------CLIENTE------------------------------------------------------------------
@@ -10,11 +10,11 @@ if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
 
     $id = $_REQUEST['id'];
 
-    $sql = "SELECT * FROM cliente";
+    $sql = "SELECT nome FROM cliente";
     $res = mysqli_query($connection, $sql);
 
     if ($res && $res->num_rows == 1) {
-        $cliente = $res->fetch_assoc();
+        $cliente = $res->fetch_assoc(nome);
     } else {
         echo "<p>Cliente não encontrado, volte a lista</p>";
         echo "<a href='Cliente.php'>Listagem de clientes</a>";
@@ -32,11 +32,11 @@ if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
 
     $id = $_REQUEST['id'];
 
-    $sql = "SELECT * FROM veiculo";
+    $sql = "SELECT modelo FROM veiculo";
     $res = mysqli_query($connection, $sql);
 
     if ($res && $res->num_rows == 1) {
-        $veiculo = $res->fetch_assoc();
+        $veiculo = $res->fetch_assoc(modelo);
     } else {
         echo "<p>Veiculo não encontrado, volte a lista</p>";
         echo "<a href='veiculo.php'>Listagem de Veiculos</a>";
@@ -53,21 +53,33 @@ if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
 
     $id = $_REQUEST['id'];
 
-    $sql = "SELECT * FROM funcionario";
+    $sql = "SELECT nome FROM funcionario";
     $res = mysqli_query($connection, $sql);
 
     if ($res && $res->num_rows == 1) {
-        $funcionario = $res->fetch_assoc();
+        $funcionario = $res->fetch_assoc(nome);
     } else {
         echo "<p>Funcionario não encontrado, volte a lista</p>";
         echo "<a href='funcionario.php'>Listagem de funcionarios</a>";
     }
 
 } else {
-    header("Location: funcionario.php");
+    header("Location: cadastro_fucionario.php");
 }
+$data = current_date;
+if (!$erro) {
+    $sql = "INSERT INTO venda (data, cliente_id, veiculo_id, funcionario_id) VALUES ('$data','$cliente','$veiculo', '$funcionario')";
+    
+    $result = mysqli_query($connection, $sql);
 
-
+    if ($result) {
+        header("Location: http://localhost/prova/venda.php");
+    } else {
+        echo "Erro ao executar o SQL";
+    }
+} else {
+    echo "Erro nos dados. Falta algum valor";
+}
 
 ?>
 
