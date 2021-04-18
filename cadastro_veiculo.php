@@ -79,16 +79,19 @@ if (isset($_REQUEST['btnSalvar'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-5.css">
     <title>Cadastro de Veiculo</title>
     <style>
         .form-input {
-            margin: 15px;
+            margin: 10px;
         }
 
         .form-input input {
-            padding: 5px;
-            border-radius: 4px;
+            padding: 15px 80px;
+            border-radius: 6px;
             border: 2px solid #8f8f8f;
+            background-color: #DCDCDC;
+            
         }
 
         .form-input input:focus {
@@ -103,22 +106,45 @@ if (isset($_REQUEST['btnSalvar'])) {
         }
 
         .form-input input[type=submit] {
-            padding: 10px 25px 10px 25px;
+            padding: 10px 270px 10px 25px;
             color: black;
             background-color: #62d158;
             cursor: pointer;
             transition-duration: 0.5s;
+            text-align: center;
         }
 
         .form-input input[type=submit]:hover {
-            padding: 10px 25px 10px 25px;
+            padding: 10px 270px 10px 25px;
             background-color: #9bc997;
             transition-duration: 0.5s;
+
+        }
+        form{
+            position: absolute;
+            padding: 10px 150px 250px 500px;
+            font-family: 'bebas neue';
+            color: #363636;
+
+
+        }
+        h1, h4{
+        font-family: 'bebas neue';
+        padding: 20px 16px;
+        width: 100%; 
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        color: #363636;
+        }
+        body{
+            background:#DCDCDC;
         }
     </style>
 </head>
 <body>
     <h1>Cadastro de Veiculo</h1>
+    <a href="veiculo.php" class="btn">Voltar</a>
     <form action="cadastro_veiculo.php" method="post">
         <div class="form-input">
             <label for="modelo">Modelo</label>

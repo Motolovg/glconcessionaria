@@ -1,7 +1,7 @@
 <?php
 
 $host = '127.0.0.1';
-$user = 'hoot';
+$user = 'root';
 $password = '';
 $database = 'lg';
 

@@ -23,7 +23,7 @@ Gerente, é você?</div>
                           <input type="password" name="senha" id="senha" required>
                         </div>
               <div class="forgot-pass">
-              <a href="#">Esqueceu a senha?</a></div>
+              <a href="#">Um gerente não pode esquecer sua senha</a></div>
               <div class="btn">
                           <div class="inner">
               </div>
