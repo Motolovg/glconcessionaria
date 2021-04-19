@@ -1,5 +1,5 @@
 <?php 
-include "valida_login.php";
+#include "valida_login.php";
 include 'conexao.php';
 ?>
 <!DOCTYPE html>

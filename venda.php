@@ -1,90 +1,9 @@
 <?php
 
-include "valida_login.php";
+#include "valida_login.php";
 include 'conexao.php';
-
-#----------------------------------------------CLIENTE------------------------------------------------------------------
-
-
-if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
-
-    $id = $_REQUEST['id'];
-
-    $sql = "SELECT nome FROM cliente";
-    $res = mysqli_query($connection, $sql);
-
-    if ($res && $res->num_rows == 1) {
-        $cliente = $res->fetch_assoc(nome);
-    } else {
-        echo "<p>Cliente não encontrado, volte a lista</p>";
-        echo "<a href='Cliente.php'>Listagem de clientes</a>";
-    }
-
-} else {
-    header("Location: cliente.php");
-}
-
-
-#----------------------------------------------VEICULO--------------------------------------------------------------------
-
-
-if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
-
-    $id = $_REQUEST['id'];
-
-    $sql = "SELECT modelo FROM veiculo";
-    $res = mysqli_query($connection, $sql);
-
-    if ($res && $res->num_rows == 1) {
-        $veiculo = $res->fetch_assoc(modelo);
-    } else {
-        echo "<p>Veiculo não encontrado, volte a lista</p>";
-        echo "<a href='veiculo.php'>Listagem de Veiculos</a>";
-    }
-
-} else {
-    header("Location: veiculo.php");
-}
-
-#---------------------------------------FUNCIONARIO----------------------------------------------------------
-
-
-if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
-
-    $id = $_REQUEST['id'];
-
-    $sql = "SELECT nome FROM funcionario";
-    $res = mysqli_query($connection, $sql);
-
-    if ($res && $res->num_rows == 1) {
-        $funcionario = $res->fetch_assoc(nome);
-    } else {
-        echo "<p>Funcionario não encontrado, volte a lista</p>";
-        echo "<a href='funcionario.php'>Listagem de funcionarios</a>";
-    }
-
-} else {
-    header("Location: cadastro_fucionario.php");
-}
-$data = current_date;
-if (!$erro) {
-    $sql = "INSERT INTO venda (data, cliente_id, veiculo_id, funcionario_id) VALUES ('$data','$cliente','$veiculo', '$funcionario')";
-    
-    $result = mysqli_query($connection, $sql);
-
-    if ($result) {
-        header("Location: http://localhost/prova/venda.php");
-    } else {
-        echo "Erro ao executar o SQL";
-    }
-} else {
-    echo "Erro nos dados. Falta algum valor";
-}
-
 ?>
 
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,36 +50,50 @@ if (!$erro) {
 </head>
 <body>
     <h1>Fazer Venda </h1>
-    <form action="salva_venda.php?id=<?php echo $id; ?>" method="post">
+    <form method="POST" action="salva_venda.php" >
+
+
+
+                <select name="Nome do cliente">
+                    <option> Cliente</option>
+                        <?php
+                            $result_cliente="SELECT nome FROM lg.cliente  ORDER BY nome ASC;";
+                            $resultado_cliente= mysqli_query($connection, $result_cliente);
+                            while ($row_cliente = mysqli_fetch_assoc($resultado_cliente)) { ?>
+                                <option values="<?php echo $row_cliente['id'];?>"><?php echo $row_cliente['nome'];?>
+                                        </option> <?php }
+                        ?>
+
+                </select> <br><br>
+
+                <select name="Modelo do Veiculo">
+                    <option> Veiculo </option>
+                    <?php
+                        $result_veiculo="SELECT modelo FROM lg.veiculo ORDER BY modelo ASC";
+                        $resultado_veiculo = mysqli_query($connection , $result_veiculo);
+                    while ($row_veiculo = mysqli_fetch_assoc($resultado_veiculo)) { ?>
+                        <option values="<?php echo $row_veiculo['id'];?>"><?php echo $row_veiculo['modelo'];?>
+                        </option> <?php }
+                    ?>
+
+                </select>
 
                 <div class="form-input">
-                    <label for="data">Data da Compra</label>
-                    <input type="date" id="data" name="data" value="<?php echo $venda['data'] ?>" required>
+                    <label for="text">Valor da Compra</label>
+                    <input type="text" id="text" name="valor" placeholder="Valor" required>
                 </div>
 
-            <?php foreach ($cliente as $cliente) { ?>    
-                <div class="form-input">
-                    <label for="nome">Nome do Cliente</label>
-                    <input type="text" id="nome" name="nome" value="<?php echo $cliente['nome'] ?>" required>
-                </div>
-            <?php } ?>
+                <select name="Nome do Funcionario">
+                    <option> Funcionario </option>
+                    <?php
+                        $result_funcionario="SELECT nome FROM lg.funcionario ORDER BY nome ASC ";
+                        $resultado_funcionario= mysqli_query($connection, $result_funcionario);
+                    while ($row_funcionario= mysqli_fetch_assoc($resultado_funcionario)) { ?>
+                        <option values="<?php echo $row_funcionario['id'];?>"><?php echo $row_funcionario['nome'];?>
+                        </option> <?php }
+                    ?>
 
-
-            <?php foreach ($veiculo as $veiculo) { ?>
-                <div class="form-input">
-                    <label for="modelo">Modelo do Carro</label>
-                    <input type="modelo" id="modelo" name="modelo" value="<?php echo $veiculo['cpf'] ?>" required>
-                </div>
-            <?php } ?>
-
-            <?php foreach ($funcionario as $funcionario) { ?>
-                <div class="form-input">
-                    <label for="nome">Nome do Funcionario</label>
-                    <input type="text" id="nome" name="nome" value="<?php echo $funcionario['cep'] ?>" required>
-                </div>
-            <?php } ?>
-
-
+                    <br><br>
                 <div class="form-input">
                     <input type="submit" value="Vender" id="btnVender" name="btnVender">
                 </div>

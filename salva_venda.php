@@ -1,46 +1,20 @@
 <?php
-
-include "valida_login.php";
 include 'conexao.php';
 
-if (isset($_REQUEST['btnVender'])) {
-    
-    $erro = 0;
+        $data=date;
+        $nome_cliente=$_POST['nome'];
+        $modelo_meiculo=$_POST['modelo'];
+        $valor=$_POST['valor'];
+        $nome_funcionario=$_POST['nome'];
 
-    if (isset($_REQUEST['data']) && !empty($_REQUEST['data'])) {
-        $data = $_REQUEST['data'];
-    } else {
-        $erro = 1;
-    }
+        $result="INSERT INTO historico (data, nome_cliente, modelo_veiculo, valor, nome_funcionario)VALUES($data,$nome_cliente,$modelo_meiculo, $valor, $nome_funcionario);";
 
-    if (isset($_REQUEST['nome']) && !empty($_REQUEST['nome'])) {
-        $nome = $_REQUEST['nome'];
-    } else {
-        $erro = 1;
-    }
-    
-    if (isset($_REQUEST['modelo']) && !empty($_REQUEST['modelo'])) {
-        $modelo = $_REQUEST['modelo'];
-    } else {
-        $erro = 1;
-    }
+        $result=mysqli_query($connection,$result);
 
-
-    if (!$erro) {
-        
-        $sql = "UPDATE venda SET nome = '$nome', cpf = '$cpf', cep = '$cep', n_casa = '$n_casa', data_nascimento = '$data_nascimento' WHERE id = $id";
-        $res = mysqli_query($connection, $sql);
-
-        if ($res) {
-            header("Location: funcionario.php");
-        } else {
-            echo "Erro ao atualizar o banco de dados";
+        if(mysqli_affected_rows($connection) !=0) {
+            echo "Venda Concluida";
+            header("Location: veiculo.php");
+        }else{
+            echo "Erro ao concluir a Venda";
         }
-
-    } else {
-        echo "Erro nos dados. Falta algum valor";
-    }
-
-}
-
 ?>
