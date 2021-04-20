@@ -4,8 +4,23 @@
 include 'conexao.php';
 
 $result = mysqli_query($connection, "SELECT * FROM historico");
-
 $vendas = $result->fetch_all(MYSQLI_ASSOC);
+
+$cliente = "SELECT c.nome FROM historico h, cliente c WHERE c.id = h.cliente";
+$resultado_cliente = mysqli_query($connection, $cliente);
+$row_cliente = mysqli_fetch_assoc($resultado_cliente);
+
+$veiculo = "SELECT v.modelo FROM historico h, veiculo v WHERE v.id = h.veiculo";
+$resultado_veiculo = mysqli_query($connection, $veiculo);
+$row_veiculo = mysqli_fetch_assoc($resultado_veiculo);
+
+$valor = "SELECT v.valor FROM historico h, veiculo v WHERE v.id = h.veiculo";
+$resultado_valor = mysqli_query($connection, $valor);
+$row_valor = mysqli_fetch_assoc($resultado_valor);
+
+$funcionario = "SELECT f.nome FROM historico h, funcionario f WHERE f.id = h.funcionario";
+$resultado_funcionario = mysqli_query($connection, $funcionario);
+$row_funcionario = mysqli_fetch_assoc($resultado_funcionario);
 
 ?>
 <!DOCTYPE html>
@@ -94,11 +109,11 @@ $vendas = $result->fetch_all(MYSQLI_ASSOC);
     <?php foreach ($vendas as $venda) { ?>
         <tr>
             <td><?php echo $venda["id"]; ?></td>
-            <td><?php echo date("d/m/Y", strtotime($vendas["data"])); ?></td>
-            <td><?php echo $venda["nome_cliente"]; ?></td>
-            <td><?php echo $venda["modelo_veiculo"]; ?></td>
-            <td><?php echo $venda["valor"]; ?></td>
-            <td><?php echo $venda["nome_funcionario"]; ?></td>
+            <td><?php echo date("d/m/Y", strtotime($venda["data_venda"])); ?></td>
+            <td><?php echo $row_cliente["nome"]; ?></td>
+            <td><?php echo $row_veiculo["modelo"]; ?></td>
+            <td><?php echo $row_valor["valor"]; ?></td>
+            <td><?php echo $row_funcionario["nome"]; ?></td>
             <td>
                 <?php echo "<a href='exclui_venda.php?id={$venda['id']}'>Excluir</a>"; ?>
             </td>

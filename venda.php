@@ -2,6 +2,21 @@
 
 #include "valida_login.php";
 include 'conexao.php';
+
+$sql_cliente="SELECT id, nome FROM cliente  ORDER BY nome ASC;";
+$resultado_cliente= mysqli_query($connection, $sql_cliente);
+$clientes = $resultado_cliente->fetch_all(MYSQLI_ASSOC);
+
+
+$sql_veiculo="SELECT id, modelo FROM veiculo  ORDER BY modelo ASC;";
+$resultado_veiculo= mysqli_query($connection, $sql_veiculo);
+$veiculos = $resultado_veiculo->fetch_all(MYSQLI_ASSOC);
+
+$sql_funcionario="SELECT id, nome FROM funcionario  ORDER BY nome ASC;";
+$resultado_funcionario= mysqli_query($connection, $sql_funcionario);
+$funcionarios = $resultado_funcionario->fetch_all(MYSQLI_ASSOC);
+
+                        
 ?>
 
 <!DOCTYPE html>
@@ -49,51 +64,34 @@ include 'conexao.php';
     </style>
 </head>
 <body>
-    <h1>Fazer Venda </h1>
+    <h1>Fazer Venda</h1>
     <form method="POST" action="salva_venda.php" >
 
 
+            <label for="cliente">Cliente</label>
+                <select name="cliente">
+                    <?php foreach($clientes as $cliente) {?>
+                        <option values= "<?php echo $cliente['id']?>"><?php echo $cliente["id"], $cliente['nome'];?></option>
+                    <?php } ?>
+                </select> 
+             <br><br>
 
-                <select name="Nome do cliente">
-                    <option> Cliente</option>
-                        <?php
-                            $result_cliente="SELECT nome FROM lg.cliente  ORDER BY nome ASC;";
-                            $resultado_cliente= mysqli_query($connection, $result_cliente);
-                            while ($row_cliente = mysqli_fetch_assoc($resultado_cliente)) { ?>
-                                <option values="<?php echo $row_cliente['id'];?>"><?php echo $row_cliente['nome'];?>
-                                        </option> <?php }
-                        ?>
+             <label for="veiculo">veiculo</label>
+                <select name="veiculo">
+                    <?php foreach($veiculos as $veiculo) {?>
+                        <option values= "<?php echo $veiculo['id']?>"><?php echo $veiculo["id"], $veiculo['modelo'];?></option>
+                    <?php } ?>
+                </select> 
+             <br><br>
 
-                </select> <br><br>
+             <label for="funcionario">funcionario</label>
+                <select name="funcionario">
+                    <?php foreach($funcionarios as $funcionario) {?>
+                        <option values= "<?php echo $funcionario['id']?>"><?php echo $funcionario["id"], $funcionario['nome'];?></option>
+                    <?php } ?>
+                </select> 
+             <br><br>
 
-                <select name="Modelo do Veiculo">
-                    <option> Veiculo </option>
-                    <?php
-                        $result_veiculo="SELECT modelo FROM lg.veiculo ORDER BY modelo ASC";
-                        $resultado_veiculo = mysqli_query($connection , $result_veiculo);
-                    while ($row_veiculo = mysqli_fetch_assoc($resultado_veiculo)) { ?>
-                        <option values="<?php echo $row_veiculo['id'];?>"><?php echo $row_veiculo['modelo'];?>
-                        </option> <?php }
-                    ?>
-
-                </select>
-
-                <div class="form-input">
-                    <label for="text">Valor da Compra</label>
-                    <input type="text" id="text" name="valor" placeholder="Valor" required>
-                </div>
-
-                <select name="Nome do Funcionario">
-                    <option> Funcionario </option>
-                    <?php
-                        $result_funcionario="SELECT nome FROM lg.funcionario ORDER BY nome ASC ";
-                        $resultado_funcionario= mysqli_query($connection, $result_funcionario);
-                    while ($row_funcionario= mysqli_fetch_assoc($resultado_funcionario)) { ?>
-                        <option values="<?php echo $row_funcionario['id'];?>"><?php echo $row_funcionario['nome'];?>
-                        </option> <?php }
-                    ?>
-
-                    <br><br>
                 <div class="form-input">
                     <input type="submit" value="Vender" id="btnVender" name="btnVender">
                 </div>
