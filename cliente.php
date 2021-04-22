@@ -1,6 +1,6 @@
 <?php
 
-#include "valida_login.php";
+include "valida_login.php";
 include 'conexao.php';
 
 $result = mysqli_query($connection, "SELECT * FROM cliente");
@@ -14,7 +14,7 @@ $cliente = $result->fetch_all(MYSQLI_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style-5.css">
-    <title>Lista de Clientes</title>
+    <title>Clientes</title>
     <style>
         h1, h4{
         font-family: 'bebas neue';
@@ -22,7 +22,6 @@ $cliente = $result->fetch_all(MYSQLI_ASSOC);
         width: 100%; 
         left: 50%;
         top: 50%;
-        text-align: center;
         color: #363636;
 
     
@@ -78,7 +77,7 @@ $cliente = $result->fetch_all(MYSQLI_ASSOC);
     </style>
 </head>
 <body>
-    <h1>Lista de Clientes</h1>
+    <h1>Clientes</h1>
     <a href="index.php" class="btn">Home</a>
     <table>
         <tr>

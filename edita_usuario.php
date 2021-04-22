@@ -7,18 +7,18 @@ if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
 
     $id = $_REQUEST['id'];
 
-    $sql = "SELECT * FROM funcionario WHERE id = {$id}";
+    $sql = "SELECT * FROM usuario WHERE id = {$id}";
     $res = mysqli_query($connection, $sql);
 
     if ($res && $res->num_rows == 1) {
-        $funcionario = $res->fetch_assoc();
+        $usuario = $res->fetch_assoc();
     } else {
-        echo "<p>Funcionario não encontrado, volte a lista</p>";
-        echo "<a href='funcionario.php'>Listagem de funcionarios</a>";
+        echo "<p>usuario não encontrado, volte a lista</p>";
+        echo "<a href='usuario.php'>Listagem de usuarios</a>";
     }
 
 } else {
-    header("Location: funcionario.php");
+    header("Location: usuario.php");
 }
 
 ?>
@@ -28,7 +28,7 @@ if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Funcionario</title>
+    <title>Editar Usuario</title>
     <style>
         .form-input {
             margin: 10px;
@@ -91,32 +91,27 @@ if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
     </style>
 </head>
 <body>
-    <h1>Editar Funcionario <?php echo $funcionario['nome_f']; ?></h1>
-    <form action="salva_funcionario.php?id=<?php echo $id; ?>" method="post">
+    <h1>Editar Usuario <?php echo $usuario['nome']; ?></h1>
+    <form action="salva_usuario.php?id=<?php echo $id; ?>" method="post">
 
         <div class="form-input">
-            <label for="nome_f">Nome</label>
-            <input type="text" id="nome_f" name="nome_f" value="<?php echo $funcionario['nome_f'] ?>" required>
+            <label for="login">Login</label>
+            <input type="text" id="login" name="login" value="<?php echo $usuario['login'] ?>" required>
         </div>
 
         <div class="form-input">
-            <label for="cpf">Cpf</label>
-            <input type="cpf" id="cpf" name="cpf" value="<?php echo $funcionario['cpf'] ?>" required>
+            <label for="senha">Senha</label>
+            <input type="text" id="senha" name="senha" value="<?php echo $usuario['senha'] ?>" required>
         </div>
 
         <div class="form-input">
-            <label for="cep">Cep</label>
-            <input type="text" id="cep" name="cep" value="<?php echo $funcionario['cep'] ?>" required>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" value="<?php echo $usuario['nome'] ?>" required>
         </div>
 
         <div class="form-input">
-            <label for="n_casa">Numero da Casa</label>
-            <input type="text" id="n_casa" name="n_casa" value="<?php echo $funcionario['n_casa'] ?>" required>
-        </div>
-
-        <div class="form-input">
-            <label for="data_nascimento">Data de Nascimento</label>
-            <input type="date" id="data_nascimento" name="data_nascimento" value="<?php echo $funcionario['data_nascimento'] ?>" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="<?php echo $usuario['email'] ?>" required>
         </div>
 
         <div class="form-input">

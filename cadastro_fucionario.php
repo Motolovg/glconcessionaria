@@ -1,14 +1,14 @@
 <?php
 
-#include "valida_login.php";
+include "valida_login.php";
 include 'conexao.php';
 
 if (isset($_REQUEST['btnSalvar'])) {
     
     $erro = 0;
 
-    if (isset($_REQUEST['nome']) && !empty($_REQUEST['nome'])) {
-        $nome = $_REQUEST['nome'];
+    if (isset($_REQUEST['nome_f']) && !empty($_REQUEST['nome_f'])) {
+        $nome = $_REQUEST['nome_f'];
     } else {
         $erro = 1;
     }
@@ -38,7 +38,7 @@ if (isset($_REQUEST['btnSalvar'])) {
     }
     
     if (!$erro) {
-        $sql = "INSERT INTO funcionario (nome, cpf, cep, n_casa, data_nascimento) VALUES ('$nome','$cpf','$cep', '$n_casa', '$data_nascimento')";
+        $sql = "INSERT INTO funcionario (nome_f, cpf, cep, n_casa, data_nascimento) VALUES ('$nome','$cpf','$cep', '$n_casa', '$data_nascimento')";
         
         $result = mysqli_query($connection, $sql);
 
@@ -89,8 +89,8 @@ if (isset($_REQUEST['btnSalvar'])) {
 
         .form-input input[type=submit] {
             padding: 10px 270px 10px 25px;
-            color: black;
-            background-color: #62d158;
+            color: #DCDCDC;
+            background-color: #363636;
             cursor: pointer;
             transition-duration: 0.5s;
             text-align: center;
@@ -98,7 +98,7 @@ if (isset($_REQUEST['btnSalvar'])) {
 
         .form-input input[type=submit]:hover {
             padding: 10px 270px 10px 25px;
-            background-color: #9bc997;
+            background-color: #836FFF;
             transition-duration: 0.5s;
 
         }

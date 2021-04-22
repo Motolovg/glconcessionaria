@@ -1,6 +1,6 @@
 <?php
 
-#include "valida_login.php";
+include "valida_login.php";
 include 'conexao.php';
 
 if (isset($_REQUEST['btnEditar'])) {
@@ -13,8 +13,8 @@ if (isset($_REQUEST['btnEditar'])) {
         $erro = 1;
     } 
 
-    if (isset($_REQUEST['nome']) && !empty($_REQUEST['nome'])) {
-        $nome = $_REQUEST['nome'];
+    if (isset($_REQUEST['nome_f']) && !empty($_REQUEST['nome_f'])) {
+        $nome = $_REQUEST['nome_f'];
     } else {
         $erro = 1;
     }
@@ -45,7 +45,7 @@ if (isset($_REQUEST['btnEditar'])) {
 
     if (!$erro) {
         
-        $sql = "UPDATE funcionario SET nome = '$nome', cpf = '$cpf', cep = '$cep', n_casa = '$n_casa', data_nascimento = '$data_nascimento' WHERE id = $id";
+        $sql = "UPDATE funcionario SET nome_f = '$nome', cpf = '$cpf', cep = '$cep', n_casa = '$n_casa', data_nascimento = '$data_nascimento' WHERE id = $id";
         $res = mysqli_query($connection, $sql);
 
         if ($res) {

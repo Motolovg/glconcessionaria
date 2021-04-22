@@ -1,6 +1,6 @@
 <?php
 
-#include "valida_login.php";
+include "valida_login.php";
 include 'conexao.php';
 
 $result = mysqli_query($connection, "SELECT * FROM funcionario");
@@ -15,7 +15,7 @@ $funcionario = $result->fetch_all(MYSQLI_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style-5.css">
-    <title>Funcionario</title>
+    <title>Funcionarios</title>
     <style>
 h1, h4{
         font-family: 'bebas neue';
@@ -23,7 +23,6 @@ h1, h4{
         width: 100%; 
         left: 50%;
         top: 50%;
-        text-align: center;
         color: #363636;
 
     
@@ -79,7 +78,7 @@ h1, h4{
     </style>
 </head>
 <body>
-    <h1>Lista de Funcionários</h1>
+    <h1>Funcionários</h1>
     <a href="index.php" class="btn">Home</a>
     <table>
         <thead>
@@ -97,7 +96,7 @@ h1, h4{
             <?php foreach ($funcionario as $funcionario) { ?>
                 <tr>
                     <td><?php echo $funcionario["id"]; ?></td>
-                    <td><?php echo $funcionario["nome"]; ?></td>
+                    <td><?php echo $funcionario["nome_f"]; ?></td>
                     <td><?php echo $funcionario["cpf"]; ?></td>
                     <td><?php echo $funcionario["cep"]; ?></td>
                     <td><?php echo $funcionario["n_casa"]; ?></td>

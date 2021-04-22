@@ -1,26 +1,11 @@
 <?php
 
-#include "valida_login.php";
+include "valida_login.php";
 include 'conexao.php';
 
-$result = mysqli_query($connection, "SELECT * FROM historico");
-$vendas = $result->fetch_all(MYSQLI_ASSOC);
-
-$cliente = "SELECT c.nome FROM historico h, cliente c WHERE c.id = h.cliente";
-$resultado_cliente = mysqli_query($connection, $cliente);
-$row_cliente = mysqli_fetch_assoc($resultado_cliente);
-
-$veiculo = "SELECT v.modelo FROM historico h, veiculo v WHERE v.id = h.veiculo";
-$resultado_veiculo = mysqli_query($connection, $veiculo);
-$row_veiculo = mysqli_fetch_assoc($resultado_veiculo);
-
-$valor = "SELECT v.valor FROM historico h, veiculo v WHERE v.id = h.veiculo";
-$resultado_valor = mysqli_query($connection, $valor);
-$row_valor = mysqli_fetch_assoc($resultado_valor);
-
-$funcionario = "SELECT f.nome FROM historico h, funcionario f WHERE f.id = h.funcionario";
-$resultado_funcionario = mysqli_query($connection, $funcionario);
-$row_funcionario = mysqli_fetch_assoc($resultado_funcionario);
+$sql_venda = "SELECT h.id, h.data_venda, c.nome, v.modelo, v.valor, f.nome_f FROM historico h, cliente c, funcionario f, veiculo v WHERE c.id = h.cliente and f.id = h.funcionario and v.id = h.veiculo order by c.nome asc";
+$resultado_venda= mysqli_query($connection, $sql_venda);
+$vendas = $resultado_venda->fetch_all(MYSQLI_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -29,7 +14,7 @@ $row_funcionario = mysqli_fetch_assoc($resultado_funcionario);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style-5.css">
-    <title>Lista de Vendas</title>
+    <title>Vendas</title>
     <style>
         h1, h4{
             font-family: 'bebas neue';
@@ -37,7 +22,6 @@ $row_funcionario = mysqli_fetch_assoc($resultado_funcionario);
             width: 100%;
             left: 50%;
             top: 50%;
-            text-align: center;
             color: #363636;
 
 
@@ -110,10 +94,10 @@ $row_funcionario = mysqli_fetch_assoc($resultado_funcionario);
         <tr>
             <td><?php echo $venda["id"]; ?></td>
             <td><?php echo date("d/m/Y", strtotime($venda["data_venda"])); ?></td>
-            <td><?php echo $row_cliente["nome"]; ?></td>
-            <td><?php echo $row_veiculo["modelo"]; ?></td>
-            <td><?php echo $row_valor["valor"]; ?></td>
-            <td><?php echo $row_funcionario["nome"]; ?></td>
+            <td><?php echo $venda["nome"]; ?></td>
+            <td><?php echo $venda["modelo"]; ?></td>
+            <td><?php echo $venda["valor"]; ?></td>
+            <td><?php echo $venda["nome_f"]; ?></td>
             <td>
                 <?php echo "<a href='exclui_venda.php?id={$venda['id']}'>Excluir</a>"; ?>
             </td>

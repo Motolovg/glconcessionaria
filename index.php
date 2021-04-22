@@ -1,5 +1,5 @@
 <?php 
-#include "valida_login.php";
+include "valida_login.php";
 include 'conexao.php';
 ?>
 <!DOCTYPE html>
@@ -33,11 +33,11 @@ include 'conexao.php';
 <!-- Style 1 Start -->
     <h1>LG concessionaria</h1>
     <nav class="style-1">
-		<a href="index.php" class="btn">Home</a>
-		<a href="venda.php" class="btn">Vendas</a>
+		<a href="lista_venda.php" class="btn">Vendas</a>
 		<a href="cliente.php" class="btn">Clientes</a>
 		<a href="veiculo.php" class="btn">Veiculos</a>
-		<a href="funcionario.php" class="btn">Funcionarios</a>
+		<a href="funcionario.php" class="btn">Funcionarios</a><br><br>
+		<a href="usuario.php" class="btn">Usuarios</a>
 		<a href="logout.php" class="btn">Logout</a>
 	</nav>
 <!-- Style 1 End -->	

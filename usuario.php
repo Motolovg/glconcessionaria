@@ -3,9 +3,9 @@
 include "valida_login.php";
 include 'conexao.php';
 
-$result = mysqli_query($connection, "SELECT * FROM veiculo");
+$result = mysqli_query($connection, "SELECT * FROM usuario");
 
-$veiculo = $result->fetch_all(MYSQLI_ASSOC);
+$usuario = $result->fetch_all(MYSQLI_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -14,9 +14,9 @@ $veiculo = $result->fetch_all(MYSQLI_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style-5.css">
-    <title>Veiculos</title>
+    <title>Lista de Usuarios</title>
     <style>
-       h1, h4{
+        h1, h4{
         font-family: 'bebas neue';
         padding: 10px 15px;
         width: 100%; 
@@ -77,41 +77,28 @@ $veiculo = $result->fetch_all(MYSQLI_ASSOC);
     </style>
 </head>
 <body>
-    <h1>Veiculos</h1>
+    <h1>Usuarios</h1>
     <a href="index.php" class="btn">Home</a>
     <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Modelo</th>
-                <th>Marca</th>
-                <th>Ano</th>
-                <th>Quilometros</th>
-                <th>Placa</th>
-                <th>Cor</th>
-                <th>Valor</th>
-                <th>Tipo</th>
-                <th>Quantidade</th>
-                <th><a href="cadastro_veiculo.php">Cadastrar Veiculo</th>
-            </tr>
-        </thead>
+        <tr>
+        <th>#</th>
+        <th>Login</th>
+        <th>Senha</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th><a href="cadastro_usuario.php">Cadastrar Usuario</th>
+        </tr>
         <tbody>
-            <?php foreach ($veiculo as $veiculo) { ?>
+            <?php foreach ($usuario as $usuario) { ?>
                 <tr>
-                    <td><?php echo $veiculo["id"]; ?></td>
-                    <td><?php echo $veiculo["modelo"]; ?></td>
-                    <td><?php echo $veiculo["marca"]; ?></td>
-                    <td><?php echo $veiculo["ano"]; ?></td>
-                    <td><?php echo $veiculo["km"]; ?></td>
-                    <td><?php echo $veiculo["final_placa"]; ?></td>
-                    <td><?php echo $veiculo["cor"]; ?></td>
-                    <td><?php echo $veiculo["valor"]; ?></td>
-                    <td><?php echo $veiculo["tipo"]; ?></td>
-                    <td><?php echo $veiculo["quantidade"]; ?></td>
-
+                    <td><?php echo $usuario["id"]; ?></td>
+                    <td><?php echo $usuario["login"]; ?></td>
+                    <td><?php echo $usuario["senha"]; ?></td>
+                    <td><?php echo $usuario["nome"]; ?></td>
+                    <td><?php echo $usuario["email"]; ?></td>
                     <td>
-                        <?php echo "<a href='edita_veiculo.php?id={$veiculo['id']}'>Editar</a>"; ?>
-                        <?php echo "<a href='exclui_veiculo.php?id={$veiculo['id']}'>Excluir</a>"; ?>
+                        <?php echo "<a href='edita_usuario.php?id={$usuario['id']}'>Editar</a>"; ?>
+                        <?php echo "<a href='exclui_usuario.php?id={$usuario['id']}'>Excluir</a>"; ?>
                     </td>
                 </tr>
             <?php } ?>

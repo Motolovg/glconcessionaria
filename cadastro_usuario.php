@@ -7,49 +7,37 @@ if (isset($_REQUEST['btnSalvar'])) {
     
     $erro = 0;
 
+    if (isset($_REQUEST['login']) && !empty($_REQUEST['login'])) {
+        $login = $_REQUEST['login'];
+    } else {
+        $erro = 1;
+    }
+    
+    if (isset($_REQUEST['senha']) && !empty($_REQUEST['senha'])) {
+        $senha = $_REQUEST['senha'];
+    } else {
+        $erro = 1;
+    }
+
     if (isset($_REQUEST['nome']) && !empty($_REQUEST['nome'])) {
         $nome = $_REQUEST['nome'];
     } else {
         $erro = 1;
     }
-    
-    if (isset($_REQUEST['cpf']) && !empty($_REQUEST['cpf'])) {
-        $cpf = $_REQUEST['cpf'];
-    } else {
-        $erro = 1;
-    }
 
-    if (isset($_REQUEST['cep']) && !empty($_REQUEST['cep'])) {
-        $cep = $_REQUEST['cep'];
+    if (isset($_REQUEST['email']) && !empty($_REQUEST['email'])) {
+        $email = $_REQUEST['email'];
     } else {
         $erro = 1;
-    }
-
-    if (isset($_REQUEST['n_casa']) && !empty($_REQUEST['n_casa'])) {
-        $n_casa = $_REQUEST['n_casa'];
-    } else {
-        $erro = 1;
-    }
-
-    if (isset($_REQUEST['telefone']) && !empty($_REQUEST['telefone'])) {
-        $telefone = $_REQUEST['telefone'];
-    } else {
-        $erro = 1;
-    }
-
-    if (isset($_REQUEST['data_nascimento']) && !empty($_REQUEST['data_nascimento'])) {
-        $data_nascimento = $_REQUEST['data_nascimento'];
-    } else {
-        $erro = 1;
-    }
+    }    
     
     if (!$erro) {
-        $sql = "INSERT INTO cliente (nome, cpf, cep, n_casa, telefone, data_nascimento) VALUES ('$nome','$cpf','$cep', '$n_casa', $telefone, '$data_nascimento')";
+        $sql = "INSERT INTO usuario (login, senha, nome, email) VALUES ('$login', '$senha', '$nome','$email')";
         
         $result = mysqli_query($connection, $sql);
 
         if ($result) {
-            header("Location: http://localhost/prova/cliente.php");
+            header("Location: http://localhost/prova/usuario.php");
         } else {
             echo "Erro ao executar o SQL";
         }
@@ -68,7 +56,7 @@ if (isset($_REQUEST['btnSalvar'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style-5.css">
-    <title>Cadastro de cliente</title>
+    <title>Cadastro de Uusuario</title>
     <style>
         .form-input {
             margin: 10px;
@@ -131,39 +119,29 @@ if (isset($_REQUEST['btnSalvar'])) {
     </style>
 </head>
 <body>
-    <h1>Cadastro de cliente</h1>
-    <a href="cliente.php" class="btn">Voltar</a>
-    <form action="cadastro_cliente.php" method="post">
+    <h1>Cadastro de Usuario</h1>
+    <a href="usuario.php" class="btn">Voltar</a>
+    <form action="cadastro_usuario.php" method="post">
+        <div class="form-input">
+            <label for="login">Login</label>
+            <input type="login" id="login" name="login" required>
+        </div>
+
+        <div class="form-input">
+            <label for="senha">Senha</label>
+            <input type="senha" id="senha" name="senha" required>
+        </div>
+
         <div class="form-input">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" required>
         </div>
 
         <div class="form-input">
-            <label for="cpf">cpf</label>
-            <input type="cpf" id="cpf" name="cpf" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
         </div>
-
-        <div class="form-input">
-            <label for="cep">cep</label>
-            <input type="text" id="cep" name="cep" required>
-        </div>
-
-        <div class="form-input">
-            <label for="n_casa">Numero da Casa</label>
-            <input type="text" id="n_casa" name="n_casa" required>
-        </div>
-
-        <div class="form-input">
-            <label for="telefone">Telefone</label>
-            <input type="text" id="telefone" name="telefone" required>
-        </div>
-
-        <div class="form-input">
-            <label for="data_nascimento">Data de Nascimento</label>
-            <input type="date" id="data_nascimento" name="data_nascimento" required>
-        </div>
-
+        
         <div class="form-input">
             <input type="submit" value="Salvar" id="btnSalvar" name="btnSalvar">
         </div>

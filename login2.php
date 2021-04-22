@@ -11,8 +11,7 @@
       <label for="show" class="show-btn">LG concessionaria</label>
       <div class="container">
         <label for="show" class="close-btn fas fa-times" title="close"></label>
-        <div class="text">
-Gerente, é você?</div>
+        <img src="gllogo.png" alt="logo gl" width=60 height=60>
           <form action="realiza_login.php" method="POST">
                         <div class="data">
                           <label for="login">Usuário</label>
